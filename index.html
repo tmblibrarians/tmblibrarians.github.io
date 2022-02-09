@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<title>TMB Musical Directory</title>
 		<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/e336qxN.png" alt="tmb-head-icon" border="0">
+		<link rel="stylesheet" href="./tmblibrarians.github.io/main.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
 		body
@@ -177,12 +178,14 @@
 			<form class="modal-content animate" action="/action_page.php" method="post">
 				<div class="container">
 					<label for="uname"><b>Username</b></label>
-					<input type="text" placeholder="Enter Username" name="uname" required>
+					<input type="text" class="form__input" placeholder="Enter Username" name="uname" required>
 				
 					<label for="psw"><b>Password</b></label>
-					<input type="password" placeholder="Enter Password" name="psw" required>
-				
-					<button type="submit">Login</button>
+					<input type="password" class="form__input" placeholder="Enter Password" name="psw" required>
+
+					<div class="form__message form_message--error">Incorrect username/password.</div>
+
+					<button class="form__submit" type="submit">Login</button>
 					<label>
 						<input type="checkbox" checked="checked" name="remember">Remember Me
 					</label>
@@ -194,6 +197,8 @@
 				</div>
 			</form>
 		</div>
+		
+		<script src="./tmblibrarians.github.io/main.js"></script>
 		
 		<script>
 			var modal = document.getElementById('id01');
