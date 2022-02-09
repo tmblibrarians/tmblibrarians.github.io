@@ -36,6 +36,10 @@
 			padding: 14px 16px;
 			text-decoration: none;
 		}
+		.navbar a.right
+		{
+			float: right;
+		}
 		.navbar a:hover
 		{
 			background-color: #ddd;
@@ -43,10 +47,114 @@
 		}
 		.footer
 		{
-		padding: 20px;
-		color: gold;
-		text-align: right;
-		background: #900;
+			padding: 20px;
+			color: gold;
+			text-align: right;
+			background: #900;
+		}
+		input[type=text], input[type=password]
+		{
+			width: 100%;
+			padding: 12px 20px;
+			margin: 8px 0;
+			display: inline-block;
+			border: 1px solid #ccc;
+			box-sizing: border-box;
+		}
+		button
+		{
+			background-color: #990000;
+			color: gold;
+			padding: 14px 20px;
+			margin: 8px 0;
+			border: none;
+			cursor: pointer;
+			width: 100%;
+			font-family: Georgia;
+			font-size: 16px;
+		}
+		button:hover
+		{
+			opacity: 0.8;
+		}
+		.cancelbtn
+		{
+			width: auto;
+			padding: 10px 18px;
+			background-color; #f44336;
+		}
+		.container
+		{
+			padding: 16px;
+			color: gold;
+		}
+		span.psw
+		{
+			float: right;
+			padding-top: 16px;
+		}
+		.modal
+		{
+			display: none;
+			position: fixed;
+			z-index: 1;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgb(0,0,0);
+			background-color: rgba(0,0,0,0.4);
+			padding-top: 60px;
+		}
+		.modal-content
+		{
+			background-color: #990000;
+			margin: 5% auto 15% auto;
+			border: 1px solid #888;
+			width: 80%
+		}
+		.close
+		{
+			position: absolute;
+			right: 25px;
+			top: 0;
+			color: #000;
+			font-size: 35px;
+			font-weight: bold;
+		}
+		.close:hover,
+		.close.focus
+		{
+			color: red;
+			cursor: pointer;
+		}
+		.animate 
+		{
+			-webkit-animation: animatezoom 0.6s;
+			animation: animatezoom 0.6s
+		}
+		@-webkit-keyframes animatezoom
+		{
+			from {-webkit-transform: scale(0)}
+			to {-webkit-transform: scale(1)}
+		}
+		@keyframes animatezoom
+		{
+			from {transform: scale(0)}
+  			to {transform: scale(1)}
+  		}
+		@media screen and (max-wdth: 300px)
+		{
+			span.psw
+			{
+				display: block;
+				float: none;
+			}
+			.cancelbtn
+			{
+				width: 100%
+			}
 		}
 		</style>
 	</head>
@@ -60,7 +168,68 @@
 			<a href="index.html">Home</a>
 			<a href="directory.html">Musical Directory</a>
 			<a href="request.html">Request Print</a>
+			<a onclick="document.getElementById('id01').style.display='block'" style="wdith:auto;" class="right">Librarian Login</a>
 		</nav>
+		
+		<div id="id01" class="modal">
+			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+			<form class="modal-content animate" action="/action_page.php" method="post">
+				<div class="container">
+					<label for="uname"><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="uname" required>
+				
+					<label for="psw"><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" name="psw" required>
+				
+					<button type="submit">Login</button>
+					<label>
+						<input type="checkbox" checked="checked" name="remember">Remember Me
+					</label>
+				</div>
+
+				<div class="container" style="background-color:#f1f1f1">
+					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+					<span class="psw"><a href="newPassword.html">Forgot password?</a></span>
+				</div>
+			</form>
+		</div>
+		
+		<script>
+			var modal = document.getElementById('id01');
+			window.onclick = function(event)
+			{
+				if(event.target == modal)
+				{
+					modal.style.display = "none":
+				}	
+			}
+			function showResult(str)
+			{
+				if (str.length==0)
+				{
+    				document.getElementById("livesearch").innerHTML="";
+    				document.getElementById("livesearch").style.border="0px";
+    				return;
+				}
+				var xmlhttp=new XMLHttpRequest();
+				xmlhttp.onreadystatechange=function()
+				{
+    				if (this.readyState==4 && this.status==200)
+    				{
+      					document.getElementById("livesearch").innerHTML=this.responseText;
+      					document.getElementById("livesearch").style.border="1px solid #A5ACB2";
+    				}
+				}
+				xmlhttp.open("GET","livesearch.php?q="+str,true);
+				xmlhttp.send();
+			}
+		</script>
+		
+		<form>
+			<input type="text" size="30" onkeyup="showResult(this.value)">
+			<div id="livesearch"></div>
+		</form>
 		
 		<footer>
 			<p class="footer">
