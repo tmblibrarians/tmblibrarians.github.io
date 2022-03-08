@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<title>TMB Musical Directory</title>
+		<link rel="shortcut icon" type="image/png" href="https://i.imgur.com/e336qxN.png" alt="tmb-head-icon" border="0">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="contact.css">
+	</head>
+	
+	<body>
+		<header class="header">
+			<h1>TMB Musical Directory</h1>
+		</header>
+		
+		<nav class="navbar">
+			<a href="index.html">Home</a>
+			<a href="directory.html">Musical Directory</a>
+			<a href="request.html">Request Print</a>
+			<a href="contact.html">Contact us</a>
+			<!--<a onclick="document.getElementById('id01').style.display='block'" style="wdith:auto;" class="right">Librarian Login</a>-->
+			<a href="login_test.html" style="wdith:auto;" class="right">Librarian Login</a>
+		</nav>
+		
+		<div id="id01" class="modal">
+			<span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+
+			<form class="modal-content animate" action="/action_page.php" method="post">
+				<div class="container">
+					<label for="uname"><b>Username</b></label>
+					<input type="text" class="form__input" placeholder="Enter Username" name="uname" required>
+				
+					<label for="psw"><b>Password</b></label>
+					<input type="password" class="form__input" placeholder="Enter Password" name="psw" required>
+
+					<div class="form__message form_message--error">Incorrect username/password.</div>
+
+					<button class="form__submit" type="submit">Login</button>
+					<label>
+						<input type="checkbox" checked="checked" name="remember">Remember Me
+					</label>
+				</div>
+
+				<div class="container" style="background-color:#f1f1f1">
+					<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+					<span class="psw"><a href="newPassword.html">Forgot password?</a></span>
+				</div>
+			</form>
+		</div>
+	<div background-color="red">
+		<table border="5" cellspacing="0" align="center" class="calendar">
+			<tr>
+				<td align="center" height="50"
+					width="100"><br>
+					<b></b></br>
+				</td>
+				<td align="center" height="50"
+					width="100">
+					<b>Monday</b>
+				</td>
+				<td align="center" height="50"
+					width="100">
+					<b>Tuesday</b>
+				</td>
+				<td align="center" height="50"
+					width="100">
+					<b>Wednesday</b>
+				</td>
+				<td align="center" height="50"
+					width="100">
+					<b>Thursday</b>
+				</td>
+				<td align="center" height="50"
+					width="100">
+					<b>Friday</b>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" height="50">
+					<b>10:00 AM</b></td>
+				<td align="center" height="50" class="calEMPTY"></td>
+				<td rowspan="4" align="center"
+					height="50" class="calEMPTY">
+				</td>
+				<td rowspan="2" align="center"
+					height="50" class="calBlock">ISSAC
+				</td>
+				<td rowspan="6" align="center"
+					height="50" class="calEMPTY">
+				</td>
+				<td rowspan="2" align="center"
+					height="50" class="calEMPTY">
+				</td>
+			</tr>
+			<tr>
+				<td align="center" height="50">
+					<b>11:00 AM</b>
+				</td>
+				<td rowspan="3" align="center"
+					height="50" class="calBlock">REMY
+				</td>
+			</tr>
+			<tr>
+				<td align="center" height="50">
+					<b>12:00 PM</b>
+				</td>
+				<td rowspan="2" align="center"
+					height="50" class="calBlock">REMY
+				</td>
+				<td rowspan="3" align="center"
+					height="50" class="calBlock">ISSAC
+				</td>
+			</tr>
+			<tr>
+				<td align="center" height="50">
+					<b>1:00 PM</b>
+				</td>
+			</tr>
+			<tr>
+				<td align="center" height="50">
+					<b>2:00 PM</b>
+				</td>
+				<td rowspan="5" align="center"
+					height="50" class="calEMPTY">
+				</td>
+				<td rowspan="2" align="center"
+					height="50" class="calBlock">ISSAC
+				</td>
+				<td rowspan="3" align="center"
+					height="50" class="calEMPTY">
+				</td>
+			</tr>
+			<tr>
+				<td align="center" height="50">
+					<b>3:00 PM</b>
+				</td>
+				<td rowspan="4" align="center"
+					height="50" class="calEMPTY">
+				</td>
+			</tr>
+			<tr>
+				<td align="center" height="50">
+					<b>4:00 PM</b>
+				</td>
+				<td rowspan="2" align="center"
+					height="50" class="calBlock">REMY
+				</td>
+				<td rowspan="2" align="center"
+					height="50" class="calBlock">REMY
+				</td>
+			</tr>
+			<tr>
+				<td align="center" height="50">
+					<b>5:00 PM</b>
+				</td>
+				<td rowspan="2" align="center"
+					height="50" class="calBlock">ISSAC
+				</td>
+			</tr>
+			<tr>
+				<td align="center" height="50">
+					<b>6:00 PM</b>
+				</td>
+				<td align="center" height="50" class="calEMPTY"></td>
+				<td align="center" height="50" class="calEMPTY"></td>
+			</tr>
+		</table>
+	</div>
+		<script src="./tmblibrarians.github.io/main.js"></script>
+		
+		<script>
+			var modal = document.getElementById('id01');
+			window.onclick = function(event)
+			{
+				if(event.target == modal)
+				{
+					modal.style.display = "none":
+				}	
+			}
+		</script>
+		
+		<footer>
+			<p class="footer">
+				Made by Issac Magallanes, 2022 TMB Librarian
+			</p>
+		</footer>
+	</body>
+	
+</html>
